@@ -26,7 +26,7 @@ Claude / any MCP client  <-- stdio -->  resolve_lua_mcp.py  <-- files -->  Curso
 ```bash
 git clone https://github.com/shreejalgiri6/davinci-resolve-lua-bridge.git
 cd davinci-resolve-lua-bridge
-python3 -m venv venv
+python3.11 -m venv venv   # any Python 3.10+; macOS's built-in python3 is 3.9 and too old
 venv/bin/pip install -r requirements.txt
 cp CursorBridgeLua.lua ~/Library/Application\ Support/Blackmagic\ Design/DaVinci\ Resolve/Fusion/Scripts/Utility/
 ```
@@ -37,7 +37,7 @@ Register the server with your MCP client. For Claude Code:
 claude mcp add davinci-resolve -- "$PWD/venv/bin/python" "$PWD/resolve_lua_mcp.py"
 ```
 
-Then restart Resolve, open a project, choose **Workspace → Scripts → CursorBridgeLua**, and leave it running. The console prints `Bridge is running`.
+Then restart Resolve, open a project, choose **Workspace → Scripts → CursorBridgeLua**, and leave it running. It runs silently: Resolve's Console stays empty while the bridge is listening, so use the check below.
 
 ## Try it
 
